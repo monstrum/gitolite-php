@@ -33,5 +33,10 @@
         "psr-0": {
             "Gitolite\\": "src/"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
     }
 }
