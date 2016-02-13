@@ -64,7 +64,7 @@ class Repo
     /**
      * Get Acls
      *
-     * @return array of Acls
+     * @return Acl[]|array
      */
     public function getAcls()
     {
@@ -100,7 +100,15 @@ class Repo
         $return = 'repo ' . $this->getName() . PHP_EOL;
 
         foreach ($this->getAcls() as $acl) {
-            $return .= '    ' . $acl->render();
+            try {
+                $render = $acl->render();
+            } catch (\Exception $e) {
+                $render = null;
+            }
+
+            if($render) {
+                $return .= '    ' . $render;
+            }
         }
 
         return $return . PHP_EOL;

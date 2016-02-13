@@ -77,11 +77,14 @@ class User
 
     /**
      * Get First Key
-     *
      * @return string
+     * @throws \Exception
      */
     public function getFirstKey()
     {
+        if (count($this->keys) == 0) {
+            throw new \Exception("No Key for user {$this->getUsername()}");
+        }
         return (string) $this->keys[0];
     }
 
@@ -122,12 +125,14 @@ class User
     }
 
     /**
+     * @param null|string $suffix
+     *
      * Returns key filename in form username.pub
      *
      * @return string
      */
-    public function renderKeyFileName()
+    public function renderKeyFileName($suffix = null)
     {
-        return $this->username . '.pub';
+        return $this->username . $suffix . '.pub';
     }
 }

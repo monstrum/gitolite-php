@@ -31,7 +31,7 @@ class Team
      *
      * @param string $name The team name
      *
-     * @return Gitolite\Team
+     * @return Team
      */
     public function setName($name)
     {
@@ -60,11 +60,11 @@ class Team
     }
 
     /**
-     * Set Users
+     * Set Users (An array of user objects)
      *
-     * @param array $users An array of user objects
+     * @param User[]|array $users
      *
-     * @return Gitolite\Team
+     * @return $this
      */
     public function setUsers(array $users)
     {
@@ -78,7 +78,7 @@ class Team
     /**
      * Get Users
      *
-     * @return array of Users
+     * @return User[]|array
      */
     public function getUsers()
     {
@@ -86,11 +86,11 @@ class Team
     }
 
     /**
-     * Add user
+     * Add user (An user object)
      *
-     * @param User $user An user object
+     * @param User $user
      *
-     * @return Gitolite\Team
+     * @return $this
      */
     public function addUser(User $user)
     {
@@ -99,11 +99,11 @@ class Team
     }
 
     /**
-     * Set Teams
+     * Set Teams (An array of team objects)
      *
-     * @param array $teams An array of team objects
+     * @param Team[]|array $teams
      *
-     * @return Gitolite\Acl
+     * @return $this
      */
     public function setTeams(array $teams)
     {
@@ -117,7 +117,7 @@ class Team
     /**
      * Get Teams
      *
-     * @return array of Teams
+     * @return Team[]|array
      */
     public function getTeams()
     {
@@ -129,7 +129,7 @@ class Team
      *
      * @param Team $team A team object
      *
-     * @return Gitolite\Acl
+     * @return $this
      */
     public function addTeam(Team $team)
     {
@@ -142,7 +142,7 @@ class Team
      *
      * Format: @<team_name> = <user 1> <user 2> <user 3> <user 'n'>
      *
-     * @param string $nl Include a new line (default true)
+     * @param boolean $nl Include a new line (default true)
      *
      * @return string
      */

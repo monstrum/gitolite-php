@@ -23,7 +23,7 @@ namespace Gitolite;
 class Acl
 {
     private $allowedPermissions = array(
-        'R', 'RW', 'RW+', '-', 'RWC', 'RW+C', 'RWD', 'RW+D', 'RWCD', 'RW+CD', 'RWDC', 'RW+DC',
+        'C', 'R', 'RW', 'RW+', '-', 'RWC', 'RW+C', 'RWD', 'RW+D', 'RWCD', 'RW+CD', 'RWDC', 'RW+DC',
     );
     protected $permission = null;
     protected $refexes = '';
@@ -33,11 +33,11 @@ class Acl
     /**
      * Set Permission
      *
-     * Valids: R, RW, RW+, -, RWC, RW+C, RWD, RW+D, RWCD, RW+CD, RWDC, RW+DC
+     * Valids: C, R, RW, RW+, -, RWC, RW+C, RWD, RW+D, RWCD, RW+CD, RWDC, RW+DC
      *
      * @param string $permission A permission
      *
-     * @return Gitolite\Acl
+     * @return Acl
      */
     public function setPermission($permission)
     {
@@ -141,7 +141,7 @@ class Acl
     /**
      * Get Teams
      *
-     * @return array of Teams
+     * @return Team|array
      */
     public function getTeams()
     {
@@ -153,7 +153,7 @@ class Acl
      *
      * @param Team $team A team object
      *
-     * @return Gitolite\Acl
+     * @return Acl
      */
     public function addTeam(Team $team)
     {
